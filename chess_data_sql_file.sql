@@ -3,7 +3,7 @@
 -- table structure:
 select * from chess_data
 
- Creating a game_id column to identify each game separately.
+--Creating a game_id column to identify each game separately.
 alter table chess_data
 add game_id int identity(1,1)
 
