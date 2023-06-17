@@ -94,7 +94,7 @@ alter table dbo.chess_data
 alter column utc_date date
 
 
-performance wins vs games played in last two months
+--wins vs games played in last two months
 select
 count(case when white = 'Aditya_2208' and whit_result = 1 then game_id
 when black = 'Aditya_2208' and Black_Result = 1 then game_id
