@@ -3,7 +3,7 @@
 -- table structure:
 select * from chess_data
 
---Creating a game_id column to identify each game separately.
+ Creating a game_id column to identify each game separately.
 alter table chess_data
 add game_id int identity(1,1)
 
@@ -94,7 +94,7 @@ alter table dbo.chess_data
 alter column utc_date date
 
 
---wins vs games played in last two months
+--performance wins vs games played in last two months
 select
 count(case when white = 'Aditya_2208' and whit_result = 1 then game_id
 when black = 'Aditya_2208' and Black_Result = 1 then game_id
@@ -167,4 +167,68 @@ from chess_data
 group by Time_Format 
 order by black_win_percentage desc, white_win_percentage desc
 
+--ADDING SOME NEW COLUMNS TO FACILITATE DATA VISUALIZATION USING POWER BI
+alter table chess_data
+add Aditya_rating int not null default 0
+update chess_data
+set Aditya_rating = case when White = 'Aditya_2208' then White_Elo else Black_Elo end
+select * from chess_data
 
+WITH cte AS (
+    SELECT opening, COUNT(opening) AS count_opening
+    FROM chess_data
+    GROUP BY opening
+)
+UPDATE chess_data
+SET opening = 
+    CASE 
+        WHEN (SELECT count_opening FROM cte WHERE opening = chess_data.opening) > 48
+        THEN opening
+        ELSE 'Other'
+    END;
+
+
+update chess_data 
+set Opening = case when Opening = '?' then 'Other' else Opening end
+select Opening,COUNT(opening) from chess_data
+group by Opening
+order by COUNT(Opening) desc
+
+alter table chess_data
+add Aditya_result varchar(50) default 'drawn'
+
+update chess_data
+set Aditya_result = 'Draw'
+where Whit_Result = 0.5 and Black = 'Aditya_2208'
+select aditya_result, count(Aditya_result) from chess_data
+group by Aditya_result
+
+
+update chess_data
+set opening  = 'other' 
+where count(opening) <20
+
+alter table chess_data
+add opponent_rating int default 1500
+
+Update chess_data
+set opponent_rating = case when white = 'Aditya_2208' then black_elo else white_elo end
+
+select * from chess_data
+
+alter table chess_data
+drop column opponent_strength 
+
+Update chess_data
+set opponent_strength = case when Aditya_rating>opponent_rating then 'Lower' else 'Higher' end
+
+Update chess_data
+set opponent_strength = case when Aditya_rating>opponent_rating then 'Higher' end
+
+
+update chess_data
+set opponent_strength = 'Lower'
+where opponent_strength is null
+
+exec sp_rename 'chess_data.opponent_strength', 'my_strength', 'Column'
+select * from chess_data

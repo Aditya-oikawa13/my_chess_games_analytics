@@ -2,7 +2,7 @@
 MY CHESS GAMES ANALYSIS
 </h1>
 
-Hello everyone, so this the project in which I analyze my chess games extracted from [Lichess//Aditya.](https://lichess.org/@/Aditya_2208) I used extract feature availabel in lichess to extract your games.
+Hello everyone, so this the project in which I analyze my chess games extracted from [Lichess_Aditya.](https://lichess.org/@/Aditya_2208) I used extract feature availabel in lichess to extract your games.
 
 The exctracted data looked like this:
 
@@ -50,4 +50,85 @@ The exctracted data looked like this:
         height="200" 
         style="display: block; margin: 0 auto" />
 
+---
+
+
+## SQL QUERIES:
+* After preprocessing I loaded the data in SQL Server and implemented some general queries to gather insights of the data.
+* Tried different combinations to establish relation between multiple columns.
+* Added some more columns to facilitate the data visualization.
+* Here is the sample of my queries:
+
+
+<img src="SQL_QUERIES_SS.png" 
+        alt="Picture" 
+        width="900" 
+        height="300" 
+        style="display: block; margin: 0 auto" />
+
+
+You can acess all the SQL Queries [here.](chess_data_sql_file.sql)
+
+
+---
+
+
+
+## Data Visualization:
+
+* I used Power BI for the purpose of data visualization.
+* My dashboard had six visuals they all represent different aspect of data.
+* The first visual was "Rating progression with time", it shows how my rating increased or decreased over time in different game formats.
+* Second visual indicates no. of games played in different formats we can also filter this with color("Black", "White").
+* Third visual gives data of result for different colour and different format.
+* Fourth visual represents opening choices made by me.
+* Fifth visual represents how well I did in different opening choices I made". The results could be filtered on basis of format, colour and won or lost.
+* Last visual gives info about how I perform when I face a better opponent and when I face a weaker opponent. 
+
+* Here is a snapshot of my visualization:
+<img src="chess_data_visuals_03.png" 
+        alt="Picture" 
+        width="900" 
+        height="300" 
+        style="display: block; margin: 0 auto" />
+
+---
+
+<h2 align="center">
+INSIGHTS GATHERED FROM THIS PROJECT
+</h2>
+
+* My rating is constantly getting better with time this means I am getting better with experience.
+* I also tend to do much better in longer time format rather than shorter ones.
+* Most of the games played were "Blitz" but not much improvement seen in Blitz rating, I need to play more attentively while playing blitz.
+
+* I have win percent of 45.8% with White and 42.8 with black which is normal, so I don't have any issue with colour.
+
+* Whenever I play openings that I have played most I tend to do better (Win rate is 46.8%) 
+* But whenever I play openings belonging to "Others" category my win rate drops significantly. (Win rate is 
+40.9%)
+* Moreover their are certain opening in which I do a lot worse and should focus on knowing them these include:
+1. Hugarian Opening Sicilian Invitation
+2. Scandinavian defense Valencian variation
+
+* Also I tend to play openings belonging to others category more when I am playing in shorter time format.
+I should be more serious while playing them.
+
+* When a higher rated opponent I do very well in some openings those are: 
+1. Hungarian Opening Catalan Formation
+2. English Opening
+
+* I tend to draw my games more when I play a stronger oponent.
+ 
+* In all departments my win rate gets 14.8% better when I am with White and time format is Rapid. And it gets 8.3% worse when I am playing Black in Blitz format.
+---
+
+## Further Analysis Improvement
+
+I will be adding **date filter** to these data so I can see how my openings improved over the year. Because whenever you are  starting a new opening you tend to lose a lot then you improve so that could be an interesting parameter.
+
+Also, Opponent strength can be further classified in Much Higher rated, Much Lower rated etc. Because when you play tournaments you are likely to face players of all rating.
+Then those data could be treated as **outliers** and we can have more accurate analysis. 
+
+More outliers could be removed if we consider number of moves played per game, because often you need to leave games in between because of multiple reasons. If moves played are less than certain number then we can remove those games.
 
