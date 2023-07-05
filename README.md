@@ -62,7 +62,7 @@ The exctracted data looked like this:
 
 <img src="SQL_QUERIES_SS.png" 
         alt="Picture" 
-        width="900" 
+        width="600" 
         height="300" 
         style="display: block; margin: 0 auto" />
 
@@ -88,7 +88,7 @@ You can acess all the SQL Queries [here.](chess_data_sql_file.sql)
 * Here is a snapshot of my visualization:
 <img src="chess_data_visuals_03.png" 
         alt="Picture" 
-        width="900" 
+        width="600" 
         height="300" 
         style="display: block; margin: 0 auto" />
 
@@ -131,4 +131,8 @@ Also, Opponent strength can be further classified in Much Higher rated, Much Low
 Then those data could be treated as **outliers** and we can have more accurate analysis. 
 
 More outliers could be removed if we consider number of moves played per game, because often you need to leave games in between because of multiple reasons. If moves played are less than certain number then we can remove those games.
+--- 
+## Update After Two Months 
+Update 5th July 2023. 
+I have gained more than 150 elo points after this analysis and right now my elo is 2019. And I am ranked 24,429 globally among top 8%. You can visit my lichess profile [here.](https://lichess.org/@/Aditya_2208)
 
