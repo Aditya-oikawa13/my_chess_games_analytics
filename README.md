@@ -62,8 +62,8 @@ The exctracted data looked like this:
 
 <img src="SQL_QUERIES_SS.png" 
         alt="Picture" 
-        width="600" 
-        height="300" 
+        width="900" 
+        height="450" 
         style="display: block; margin: 0 auto" />
 
 
@@ -88,8 +88,8 @@ You can acess all the SQL Queries [here.](chess_data_sql_file.sql)
 * Here is a snapshot of my visualization:
 <img src="chess_data_visuals_03.png" 
         alt="Picture" 
-        width="600" 
-        height="300" 
+        width="900" 
+        height="450" 
         style="display: block; margin: 0 auto" />
 
 ---
